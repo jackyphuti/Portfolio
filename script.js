@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Video Intro Splash Screen Handler ---
+    const videoIntro = document.getElementById('video-intro');
+    const introVideo = videoIntro ? videoIntro.querySelector('.intro-video') : null;
+    
+    if (videoIntro && introVideo) {
+        // Remove intro after video ends or after 5 seconds (whichever comes first)
+        const removeIntro = () => {
+            videoIntro.classList.add('fade-out');
+            setTimeout(() => {
+                videoIntro.style.display = 'none';
+            }, 800); // Match transition duration
+        };
+        
+        // Option 1: Remove after video ends
+        introVideo.addEventListener('ended', removeIntro);
+        
+        // Option 2: Remove after 5 seconds (fallback)
+        setTimeout(removeIntro, 5000);
+        
+        // Option 3: Allow skip on click
+        videoIntro.addEventListener('click', removeIntro);
+    }
+
     // --- Active Navigation Link on Scroll ---
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
