@@ -5,6 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const introVideo = videoIntro ? videoIntro.querySelector('.intro-video') : null;
     
     if (videoIntro && introVideo) {
+        // Force video to play (handle autoplay restrictions)
+        const playVideo = async () => {
+            try {
+                await introVideo.play();
+                console.log('Intro video playing');
+            } catch (error) {
+                console.log('Autoplay blocked, video requires user interaction:', error);
+                // If autoplay is blocked, still show the intro briefly
+                setTimeout(removeIntro, 3000);
+            }
+        };
+        
         // Remove intro after video ends or after 5 seconds (whichever comes first)
         const removeIntro = () => {
             videoIntro.classList.add('fade-out');
@@ -21,6 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Option 3: Allow skip on click
         videoIntro.addEventListener('click', removeIntro);
+        
+        // Try to play the video
+        playVideo();
+    }
+    
+    // --- Hero Video Background Handler ---
+    const heroVideo = document.querySelector('.hero-video-bg');
+    if (heroVideo) {
+        // Ensure hero video plays
+        heroVideo.play().catch(error => {
+            console.log('Hero video autoplay blocked:', error);
+        });
     }
 
     // --- Active Navigation Link on Scroll ---
