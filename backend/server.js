@@ -101,6 +101,19 @@ async function askGemini(question, context) {
   return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || 'No response generated.';
 }
 
+app.get('/', (_req, res) => {
+  res.json({
+    name: 'Portfolio Chatbot Backend',
+    version: '1.0.0',
+    status: 'running',
+    provider,
+    endpoints: {
+      health: '/api/health',
+      chat: 'POST /api/chat'
+    }
+  });
+});
+
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', provider });
 });
