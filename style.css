@@ -318,8 +318,11 @@ footer {
     position: fixed;
     right: 20px;
     bottom: 90px;
-    width: 380px;
-    max-width: 90vw;
+    
+    /* THE FIX: Fluid width that never bleeds off screen */
+    width: calc(100vw - 40px); /* 100% screen width minus 20px margins on each side */
+    max-width: 380px;          /* Caps at 380px on desktop */
+    
     height: 550px;
     max-height: calc(100vh - 120px);
     background: var(--light-navy);
