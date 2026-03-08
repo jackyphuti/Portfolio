@@ -316,9 +316,10 @@ footer {
 
 .chatbot-panel {
     position: fixed;
-    right: 24px;
+    right: 20px;
     bottom: 90px;
-    width: min(420px, calc(100vw - 48px));
+    width: 380px;
+    max-width: 90vw;
     height: 550px;
     max-height: calc(100vh - 120px);
     background: var(--light-navy);
@@ -333,6 +334,7 @@ footer {
     z-index: 9998;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .chatbot-panel.open {
@@ -386,11 +388,14 @@ footer {
 .chatbot-messages {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     min-height: 350px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .chatbot-message {
@@ -427,6 +432,8 @@ footer {
     padding: 16px;
     border-top: 1px solid var(--lightest-navy);
     flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .chatbot-form input {
@@ -438,6 +445,8 @@ footer {
     outline: none;
     font-size: 0.95rem;
     font-family: var(--font-sans);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .chatbot-form input:focus {
