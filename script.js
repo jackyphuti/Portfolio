@@ -46,6 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Hero video autoplay blocked:', error);
         });
     }
+    
+    // --- Tech Stack Video Background Handler ---
+    const stackVideo = document.querySelector('.stack-video-bg');
+    if (stackVideo) {
+        // Ensure tech stack video plays
+        stackVideo.play().catch(error => {
+            console.log('Tech stack video autoplay blocked:', error);
+        });
+    }
 
     // --- Active Navigation Link on Scroll ---
     const sections = document.querySelectorAll('section');

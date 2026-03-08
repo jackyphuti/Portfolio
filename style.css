@@ -194,10 +194,49 @@ nav a:hover, nav a.active {
 .skill-tags span { background-color: var(--light-navy); color: var(--accent-color); padding: 5px 10px; border-radius: 3px; font-size: 0.9rem; }
 
 /* --- Tech Stack Section --- */
+#stack {
+    position: relative;
+    overflow: hidden;
+}
+
+.stack-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: blur(4px);
+}
+
+.stack-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 25, 47, 0.93) 0%,
+        rgba(17, 34, 64, 0.90) 50%,
+        rgba(10, 25, 47, 0.93) 100%
+    );
+    z-index: 1;
+}
+
+#stack .section-heading,
+#stack .stack-grid {
+    position: relative;
+    z-index: 2;
+}
+
 .stack-subtitle {
     text-align: center;
     margin-bottom: 24px;
     color: var(--light-slate);
+    position: relative;
+    z-index: 2;
 }
 
 .stack-grid {
