@@ -318,9 +318,10 @@ footer {
     position: fixed;
     right: 20px;
     bottom: 90px;
+    left: auto;
     
-    /* Use min() to pick whichever is smaller */
-    width: min(380px, calc(100vw - 40px));
+    /* Use clamp for better fullscreen handling */
+    width: clamp(300px, calc(100vw - 60px), 380px);
     
     height: 550px;
     max-height: calc(100vh - 120px);
