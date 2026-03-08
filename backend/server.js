@@ -7,7 +7,17 @@ dotenv.config();
 const app = express();
 const port = Number(process.env.PORT || 3001);
 
-app.use(cors());
+// Allow requests from your portfolio site
+const corsOptions = {
+  origin: [
+    'http://localhost:5500',
+    'http://127.0.0.1:5500',
+    'https://jackyphuti.github.io'
+  ],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '1mb' }));
 
 const provider = (process.env.AI_PROVIDER || 'openai').toLowerCase();
