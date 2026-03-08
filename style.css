@@ -292,6 +292,87 @@ footer {
     z-index: 1;
 }
 
+/* --- Video Intro Splash Screen --- */
+.video-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-navy);
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+.video-intro.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.intro-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.4);
+    z-index: 2;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--white);
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.intro-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 8vw, 4rem);
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.intro-subtitle {
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: var(--lightest-slate);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: blink 1.5s infinite 1s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.7; }
+}
+
 /* --- Chatbot --- */
 .chatbot-toggle {
     position: fixed;

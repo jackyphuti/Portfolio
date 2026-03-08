@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+    <!-- Video Intro Splash Screen -->
+    <div id="video-intro" class="video-intro">
+        <video autoplay muted playsinline class="intro-video">
+            <source src="background video loop/Video_Explains_Developer_Mindset.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="intro-overlay"></div>
+        <div class="intro-content">
+            <h1 class="intro-title">&lt;Jacky Mpoka /&gt;</h1>
+            <p class="intro-subtitle">Loading Portfolio...</p>
+        </div>
+    </div>
 
     <header>
         <nav>
@@ -230,5 +242,34 @@
     <!-- Optional: include ai-config.js (based on ai-config.example.js) before script.js for custom AI settings. -->
     <script src="ai-config.js"></script>
     <script src="script.js"></script>
+    
+    <script>
+        // Handle video intro splash screen
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoIntro = document.getElementById('video-intro');
+            const introVideo = document.querySelector('.intro-video');
+            
+            // Auto-hide intro after video ends or after 5 seconds (whichever comes first)
+            const hideIntro = () => {
+                videoIntro.classList.add('fade-out');
+                setTimeout(() => {
+                    videoIntro.style.display = 'none';
+                }, 800);
+            };
+            
+            // Listen for video end
+            introVideo.addEventListener('ended', hideIntro);
+            
+            // Fallback timeout (5 seconds)
+            setTimeout(() => {
+                if (videoIntro.style.opacity !== '0' && videoIntro.style.display !== 'none') {
+                    hideIntro();
+                }
+            }, 5000);
+            
+            // Allow users to skip by clicking
+            videoIntro.addEventListener('click', hideIntro);
+        });
+    </script>
 </body>
 </html>
