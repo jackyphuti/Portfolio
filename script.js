@@ -136,14 +136,43 @@ document.addEventListener('DOMContentLoaded', () => {
         loadRepoMeta(metaRow);
     });
 
+    // --- Project Category Filtering ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const categories = (card.getAttribute('data-category') || '').split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+
     // --- GitHub tech stack icons ---
     const githubStackGrid = document.getElementById('github-stack-grid');
 
     const techIconMap = {
         'C++': { label: 'C++', icon: 'cplusplus' },
+        C: { label: 'C', icon: 'c' },
         Python: { label: 'Python', icon: 'python' },
         JavaScript: { label: 'JavaScript', icon: 'javascript' },
         TypeScript: { label: 'TypeScript', icon: 'typescript' },
+        Linux: { label: 'Linux', icon: 'linux' },
+        Debian: { label: 'Debian', icon: 'debian' },
+        CMake: { label: 'CMake', icon: 'cmake' },
+        Qt: { label: 'Qt', icon: 'qt' },
+        Bash: { label: 'Bash', icon: 'bash' },
+        Rust: { label: 'Rust', icon: 'rust' },
         HTML: { label: 'HTML5', icon: 'html5' },
         CSS: { label: 'CSS3', icon: 'css3' },
         'Jupyter Notebook': { label: 'Jupyter', icon: 'jupyter' },
@@ -154,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Node: { label: 'Node.js', icon: 'nodejs' }
     };
 
-    const knownTechFallback = ['Flask', 'SQLite', 'Git', 'Node'];
+    const knownTechFallback = ['C', 'C++', 'Python', 'Linux', 'CMake', 'Qt', 'Git', 'Flask', 'SQLite', 'Node'];
 
     const createStackItem = (name) => {
         const mapped = techIconMap[name] || { label: name, icon: null };
@@ -251,10 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
         github: 'https://github.com/jackyphuti',
         cvUrl: 'cv.html',
         education: 'BSc Information Technology at the University of Pretoria (Data Science and Computer Science major).',
-        careerGoals: 'Build impactful software products, grow into advanced software engineering and applied AI roles, and contribute to data-driven systems with social impact.',
-        availability: 'Open to internships, junior software engineering roles, and collaboration opportunities.',
-        skills: 'Python, C++, JavaScript/TypeScript, Flask, SQLite, Git, computer vision and object detection.',
-        experience: 'Hands-on training from WeThinkCode and active learning through the FNB App Academy.'
+        careerGoals: 'Build impactful operating systems, low-level software engines, and performant systems, excelling in systems engineering, applied AI, and open-source contributions.',
+        availability: 'Open to internships, junior software/systems engineering roles, and open-source collaboration.',
+        skills: 'C, C++20, Linux Kernel & Wayland, Qt 6, ARM & Bare-Metal Firmware, Compilers & Emulators, Python, JavaScript/TypeScript, Git, Computer Vision, CMake, and Audio DSP.',
+        experience: 'Creator of AxisOS (Debian Linux distribution), upstream contributor to Linus Torvalds\' MicroEMACS and Zephyr RTOS, rigorous bootcamp training at WeThinkCode, and active learning at the FNB App Academy.'
     };
 
     // Runtime config: backendUrl defaults to local Express endpoint.
@@ -283,8 +312,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (q.includes('experience') || q.includes('bootcamp') || q.includes('academy')) {
             return portfolioContext.experience;
         }
-        if (q.includes('project') || q.includes('best work') || q.includes('portfolio')) {
-            return 'Top projects include Web-Server-Ray-Tracer, SpeedPoint-AI, Konnekt-My-City, Face-Eye-blink-unlock-demo, Terminal_Rogue_98, and Municipal-Fault-Reporter.';
+        if (q.includes('axis') || q.includes('linux') || q.includes('os') || q.includes('distro')) {
+            return 'Jacky created AxisOS: a modern Debian 12 (Bookworm) based Linux distribution featuring the XanMod performance kernel, native Wayland desktop, PipeWire audio, and a native C++/Qt 6 application suite (terminal, installer, task manager, GameBoost daemon) with bootable live ISO releases.';
+        }
+        if (q.includes('torvalds') || q.includes('uemacs') || q.includes('emacs') || q.includes('open source') || q.includes('contribution')) {
+            return 'Jacky is an active open-source contributor: he authored upstream C pull requests to Linus Torvalds\' MicroEMACS (PR #70, #71, #72 fixing UTF-8 column calculations, geometric buffer growth, and SIGFPE crash avoidance) as well as video driver contributions to Zephyr RTOS and embedded guitar pedal DSP.';
+        }
+        if (q.includes('cpu') || q.includes('emulator') || q.includes('compiler')) {
+            return 'Jacky created an 8-Bit CPU Emulator & Mini-C Toolkit featuring an expanded ISA, 256B RAM, a >180 MIPS native C engine with CLI debugger, a Mini-C compiler targeting 8-bit assembly, and a Tkinter GUI with live TTY console.';
+        }
+        if (q.includes('optimizer') || q.includes('apex') || q.includes('game')) {
+            return 'Jacky built Apex Overdrive (a cross-platform C++ game optimizer with an automotive cluster HUD) and Social Tsunami (a vaporwave social anxiety simulator in Godot 4 with standalone Windows installer).';
+        }
+        if (q.includes('project') || q.includes('best work') || q.includes('portfolio') || q.includes('built')) {
+            return 'Featured projects include AxisOS (Debian Linux distribution), upstream contributions to Linus Torvalds\' MicroEMACS, 8-Bit CPU Emulator & Mini-C Compiler, Apex Overdrive Game Optimizer, Raspberry Pi Bare-Metal OS & GPU Driver, ARM Cortex-M4 Firmware, Social Tsunami Game, Web-Server-Ray-Tracer, and SpeedPoint-AI.';
         }
         if (q.includes('career') || q.includes('goal') || q.includes('future')) {
             return portfolioContext.careerGoals;
@@ -302,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return `Jacky is based in ${portfolioContext.location}.`;
         }
 
-        return 'I can help with Jacky\'s skills, education, experience, projects, career goals, availability, CV, and contact details.';
+        return 'I can help with Jacky\'s skills, education, experience, projects (AxisOS, Linus Torvalds uemacs PRs, CPU Emulator, Apex Overdrive, Raspberry Pi OS), career goals, availability, CV, and contact details.';
     };
 
     let backendHealthOk = false;

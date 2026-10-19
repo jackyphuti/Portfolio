@@ -45,8 +45,8 @@
             <div class="hero-content">
                 <p class="intro-text">Hi, my name is</p>
                 <h1>Jacky Mpoka.</h1>
-                <h2 class="subtitle">I solve problems with data and code.</h2>
-                <p class="description">I'm a motivated IT student with a major in Data Science, specializing in Python and C++ to build exceptional digital experiences and enhance my skills in software engineering.</p>
+                <h2 class="subtitle">Operating systems, low-level engineering & code.</h2>
+                <p class="description">I'm an IT & Data Science student at the University of Pretoria, passionate about systems programming, OS architecture, C/C++, emulators, and open-source contributions.</p>
                 <a href="#projects" class="cta-button">Explore My Work</a>
             </div>
         </section>
@@ -55,20 +55,22 @@
             <h2 class="section-heading">About Me</h2>
             <div class="about-container">
                 <div class="about-text">
-                    <p>Hello! I'm Jacky Mpoka, a motivated and detail-oriented IT student based in Pretoria. My journey is rooted in a passion for solving complex problems through technology. I am currently pursuing a BSc in Information Technology at the University of Pretoria, with a major in Data Science & Computer Science.</p>
-                    <p>I have hands-on experience from a rigorous bootcamp at WeThinkCode and am currently enhancing my skills at the FNB App Academy. I thrive on challenges in software engineering, data science, and object detection.</p>
+                    <p>Hello! I'm Jacky Mpoka, an IT student and systems engineer based in Pretoria. My journey is rooted in a deep passion for low-level software engineering, operating system architecture, and building performant tools from the ground up. I am currently pursuing a BSc in Information Technology at the University of Pretoria, majoring in Data Science & Computer Science.</p>
+                    <p>My work ranges from engineering <strong>AxisOS</strong> (a Debian-based Linux distribution with a native C++/Qt 6 suite) and contributing upstream C fixes to Linus Torvalds' <strong>MicroEMACS</strong>, to developing cycle-accurate CPU emulators, bare-metal ARM firmware, and interactive simulators. I combine rigorous hands-on problem solving with experience from WeThinkCode and the FNB App Academy.</p>
                 </div>
                 <div class="skills">
                     <h3>Core Technologies:</h3>
                     <div class="skill-tags">
+                        <span>Linux & Wayland</span>
+                        <span>C / C++20</span>
                         <span>Python</span>
-                        <span>C++</span>
-                        <span>Flask</span>
-                        <span>Tkinter</span>
-                        <span>SQLite</span>
-                        <span>HTML & CSS</span>
-                        <span>Git</span>
-                        <span>Object Detection</span>
+                        <span>Qt 6</span>
+                        <span>Compilers & Emulators</span>
+                        <span>ARM & Embedded Drivers</span>
+                        <span>Computer Vision</span>
+                        <span>Git & Open Source</span>
+                        <span>CMake & Build Systems</span>
+                        <span>Godot & GDScript</span>
                     </div>
                 </div>
             </div>
@@ -89,22 +91,255 @@
         </section>
 
         <section id="projects" class="fade-in">
-            <h2 class="section-heading">Things I've Built</h2>
+            <h2 class="section-heading">Featured Engineering & Open Source</h2>
+            
+            <div class="project-filters" role="tablist" aria-label="Project category filters">
+                <button class="filter-btn active" data-filter="all" type="button">All Projects (14)</button>
+                <button class="filter-btn" data-filter="os" type="button">OS & Distributions</button>
+                <button class="filter-btn" data-filter="upstream" type="button">Open Source Contributions</button>
+                <button class="filter-btn" data-filter="systems" type="button">Systems & Compilers</button>
+                <button class="filter-btn" data-filter="embedded" type="button">Embedded & Drivers</button>
+                <button class="filter-btn" data-filter="ai" type="button">AI, Vision & Web</button>
+                <button class="filter-btn" data-filter="games" type="button">Games & Graphics</button>
+            </div>
+
             <div class="project-grid">
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="far fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/jackyphuti/Web-Server-Ray-Tracer" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- 1. AxisOS -->
+                <div class="project-card featured-card" data-category="os systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fab fa-linux"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/AxisOS/releases" target="_blank" rel="noopener noreferrer" title="Live ISO Releases"><i class="fas fa-compact-disc"></i></a>
+                                <a href="https://github.com/jackyphuti/AxisOS" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
+                        <span class="project-category-badge badge-os">OS Distribution • Live ISO</span>
+                        <h3>AxisOS (Linux Distribution)</h3>
+                        <div class="project-meta" data-repo="jackyphuti/AxisOS">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>A Debian 12 (Bookworm) based Linux operating system engineered for performance. Features XanMod kernel, native Wayland desktop, PipeWire pro-audio, and a zero-Electron native C++ / Qt 6 application suite (terminal emulator, installer with Btrfs/EXT4 partitioner, task manager, and GameBoost daemon).</p>
                     </div>
-                    <h3>Web Server + Ray Tracer</h3>
-                    <div class="project-meta" data-repo="jackyphuti/Web-Server-Ray-Tracer">
-                        <span class="repo-star-badge">Stars: ...</span>
-                        <span class="repo-updated-badge">Updated: loading...</span>
+                    <ul class="project-tech-list">
+                        <li>C++</li>
+                        <li>Qt 6</li>
+                        <li>Linux Kernel</li>
+                        <li>Wayland</li>
+                        <li>Debian</li>
+                        <li>Btrfs</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Linus Torvalds uemacs Contributions -->
+                <div class="project-card featured-card" data-category="upstream systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-code-pull-request"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/torvalds/uemacs/pulls?q=is%3Apr+author%3Ajackyphuti" target="_blank" rel="noopener noreferrer" title="Upstream Pull Requests"><i class="fas fa-code-branch"></i></a>
+                                <a href="https://github.com/jackyphuti/uemacs" target="_blank" rel="noopener noreferrer" title="GitHub Fork"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-upstream">Upstream Contributor • torvalds/uemacs</span>
+                        <h3>Linus Torvalds' uemacs (MicroEMACS)</h3>
+                        <div class="project-meta" data-repo="torvalds/uemacs">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Authored upstream C pull requests to Linus Torvalds' MicroEMACS: PR #72 added UTF-8 wide character/CJK/emoji terminal display column calculations, PR #71 modernized line buffer growth to geometric doubling with <code>access()</code> checks, and PR #70 prevented SIGFPE division-by-zero crashes in macro evaluation.</p>
                     </div>
-                    <p>Built a C++ HTTP server from scratch and a graphics engine that renders 3D scenes by simulating light-ray interactions with objects.</p>
+                    <ul class="project-tech-list">
+                        <li>C</li>
+                        <li>Systems Programming</li>
+                        <li>POSIX</li>
+                        <li>UTF-8</li>
+                        <li>Linux</li>
+                        <li>Memory Management</li>
+                    </ul>
+                </div>
+
+                <!-- 3. 8-Bit CPU Emulator & Systems Toolkit -->
+                <div class="project-card featured-card" data-category="systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-microchip"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/CPU-Emulator" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-systems">Computer Architecture • Systems</span>
+                        <h3>8-Bit CPU Emulator & Mini-C Toolkit</h3>
+                        <div class="project-meta" data-repo="jackyphuti/CPU-Emulator">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Complete 8-bit CPU platform featuring an expanded ISA, 256-byte RAM, MMIO ports, and hardware call stack. Includes a high-speed C99 engine executing at >180 MIPS with interactive CLI debugger, a built-in Mini-C compiler targeting 8-bit assembly, and a Tkinter GUI with live TTY console.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>Python</li>
+                        <li>C99</li>
+                        <li>C++</li>
+                        <li>Mini-C Compiler</li>
+                        <li>ISA Design</li>
+                        <li>Tkinter</li>
+                    </ul>
+                </div>
+
+                <!-- 4. Apex Overdrive Game Optimizer -->
+                <div class="project-card featured-card" data-category="systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Game-Optimizer" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-systems">Low-Level Optimization • C++</span>
+                        <h3>Apex Overdrive (Game Optimizer)</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Game-Optimizer">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Cross-platform (Windows & Linux) desktop gaming optimizer and live cyberpunk automotive gauge cluster cockpit. Dynamically elevates process scheduling, unparks CPU cores, lowers multimedia timer resolution to 0.5ms, flushes standby RAM cache, and scans PC hardware capabilities.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>C++</li>
+                        <li>CMake</li>
+                        <li>Win32 API</li>
+                        <li>Linux /proc</li>
+                        <li>Telemetry HUD</li>
+                        <li>CPack</li>
+                    </ul>
+                </div>
+
+                <!-- 5. Raspberry Pi Bare-Metal OS & GPU Driver -->
+                <div class="project-card" data-category="embedded os systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-microchip"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Raspberry-Pi-s-GPU-Drivers" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-embedded">Bare-Metal Kernel • ARM AArch64</span>
+                        <h3>Raspberry Pi Bare-Metal OS & GPU Driver</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Raspberry-Pi-s-GPU-Drivers">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Freestanding AArch64 kernel executing directly on hardware (Pi 3, Zero 2, Pi 4) without Linux. Features EL1 exception vectors, MMU identity page mapping, priority task scheduler, VideoCore mailbox interface, 32-bit framebuffer rendering, and native DWC2 USB DMA host controller.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>C++</li>
+                        <li>ARM AArch64</li>
+                        <li>Bare-Metal</li>
+                        <li>VideoCore GPU</li>
+                        <li>DMA</li>
+                        <li>QEMU</li>
+                    </ul>
+                </div>
+
+                <!-- 6. ARM Cortex-M4 Driver Framework -->
+                <div class="project-card" data-category="embedded systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-memory"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Microcontroller-Drivers" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-embedded">Embedded Firmware • C++20</span>
+                        <h3>ARM Cortex-M4 Driver Framework</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Microcontroller-Drivers">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Freestanding C++20 driver framework and firmware for STM32F4 microcontrollers running directly on bare metal without vendor HALs or RTOS. Features strongly-typed peripheral register mapping, custom startup runtime/vector table, SysTick timer, and memory-mapped GPIO/USART drivers.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>C++20</li>
+                        <li>ARM Cortex-M4</li>
+                        <li>Bare-Metal</li>
+                        <li>STM32F4</li>
+                        <li>Embedded Systems</li>
+                    </ul>
+                </div>
+
+                <!-- 7. Social Tsunami: Don't Wave Back -->
+                <div class="project-card" data-category="games">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Social-Tsunami-Game/releases" target="_blank" rel="noopener noreferrer" title="Download Windows Installer"><i class="fas fa-download"></i></a>
+                                <a href="https://github.com/jackyphuti/Social-Tsunami-Game" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-games">Game Dev • Physics Simulator</span>
+                        <h3>Social Tsunami: Don't Wave Back</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Social-Tsunami-Game">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Vaporwave-aesthetic social anxiety simulator developed in Godot 4. Features chaotic physics-driven spring ragdoll arm waving, continuous oscillation motion detection, dynamic pedestrian behavioral cues, retro synth audio, and standalone Windows installer wizard.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>Godot 4</li>
+                        <li>GDScript</li>
+                        <li>Ragdoll Physics</li>
+                        <li>Audio Synthesis</li>
+                        <li>Inno Setup</li>
+                    </ul>
+                </div>
+
+                <!-- 8. Zephyr RTOS & Guitar Pedal Audio DSP -->
+                <div class="project-card" data-category="upstream embedded">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="fas fa-code-branch"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/zephyr/tree/fix/dts-cleanup" target="_blank" rel="noopener noreferrer" title="Zephyr RTOS Branch"><i class="fas fa-code"></i></a>
+                                <a href="https://github.com/jackyphuti/GuitarPedal/tree/add-autowah-effect" target="_blank" rel="noopener noreferrer" title="GuitarPedal Branch"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-upstream">Open Source & DSP • Embedded</span>
+                        <h3>Zephyr RTOS & Guitar Pedal DSP</h3>
+                        <div class="project-meta" data-repo="jackyphuti/GuitarPedal">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Contributed video driver documentation and control cleanups to Zephyr RTOS, and implemented a dynamic Auto-Wah envelope filter audio effect in embedded C modulating a resonant biquad filter with soft-saturation and real-time LED visualizer for digital guitar pedals.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>C</li>
+                        <li>Zephyr RTOS</li>
+                        <li>Audio DSP</li>
+                        <li>Biquad Filters</li>
+                        <li>Embedded C</li>
+                    </ul>
+                </div>
+
+                <!-- 9. Web Server + Ray Tracer -->
+                <div class="project-card" data-category="systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="far fa-folder-open"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Web-Server-Ray-Tracer" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <span class="project-category-badge badge-systems">Systems • Computer Graphics</span>
+                        <h3>Web Server + Ray Tracer</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Web-Server-Ray-Tracer">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Built a C++ HTTP server from scratch and a graphics engine that renders 3D scenes by simulating light-ray interactions with objects.</p>
+                    </div>
                     <ul class="project-tech-list">
                         <li>C++</li>
                         <li>HTTP</li>
@@ -113,19 +348,23 @@
                     </ul>
                 </div>
 
-                <div class="project-card">
-                     <div class="project-header">
-                        <i class="far fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/jackyphuti/SpeedPoint-AI" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- 10. SpeedPoint AI -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="far fa-folder-open"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/SpeedPoint-AI" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
+                        <span class="project-category-badge badge-ai">Web App • Voice AI</span>
+                        <h3>SpeedPoint AI</h3>
+                        <div class="project-meta" data-repo="jackyphuti/SpeedPoint-AI">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Designed a modern POS web app with accessibility-first features, including a voice AI assistant to support inclusive checkout and navigation flows.</p>
                     </div>
-                    <h3>SpeedPoint AI</h3>
-                    <div class="project-meta" data-repo="jackyphuti/SpeedPoint-AI">
-                        <span class="repo-star-badge">Stars: ...</span>
-                        <span class="repo-updated-badge">Updated: loading...</span>
-                    </div>
-                    <p>Designed a modern POS web app with accessibility-first features, including a voice AI assistant to support inclusive checkout and navigation flows.</p>
                     <ul class="project-tech-list">
                         <li>JavaScript</li>
                         <li>Web App</li>
@@ -134,19 +373,23 @@
                     </ul>
                 </div>
 
-                <div class="project-card">
-                     <div class="project-header">
-                        <i class="far fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/jackyphuti/konnekt-my-city" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- 11. Konnekt My City -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="far fa-folder-open"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/konnekt-my-city" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
+                        <span class="project-category-badge badge-ai">Civic Tech • Full-Stack</span>
+                        <h3>Konnekt My City</h3>
+                        <div class="project-meta" data-repo="jackyphuti/konnekt-my-city">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Created a civic engagement platform that helps residents report municipal issues and track resolutions, improving local service accountability.</p>
                     </div>
-                    <h3>Konnekt My City</h3>
-                    <div class="project-meta" data-repo="jackyphuti/konnekt-my-city">
-                        <span class="repo-star-badge">Stars: ...</span>
-                        <span class="repo-updated-badge">Updated: loading...</span>
-                    </div>
-                    <p>Created a civic engagement platform that helps residents report municipal issues and track resolutions, improving local service accountability.</p>
                     <ul class="project-tech-list">
                         <li>TypeScript</li>
                         <li>Civic Tech</li>
@@ -154,19 +397,23 @@
                     </ul>
                 </div>
 
-                <div class="project-card">
-                     <div class="project-header">
-                        <i class="far fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/jackyphuti/Face-Eye-blink-unlock-demo" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- 12. Face + Eye Blink Unlock Demo -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="far fa-folder-open"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Face-Eye-blink-unlock-demo" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
+                        <span class="project-category-badge badge-ai">Computer Vision • Biometrics</span>
+                        <h3>Face + Eye Blink Unlock Demo</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Face-Eye-blink-unlock-demo">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Implemented face recognition with eye-blink liveness verification to demonstrate secure, real-time biometric authentication and anti-spoofing.</p>
                     </div>
-                    <h3>Face + Eye Blink Unlock Demo</h3>
-                    <div class="project-meta" data-repo="jackyphuti/Face-Eye-blink-unlock-demo">
-                        <span class="repo-star-badge">Stars: ...</span>
-                        <span class="repo-updated-badge">Updated: loading...</span>
-                    </div>
-                    <p>Implemented face recognition with eye-blink liveness verification to demonstrate secure, real-time biometric authentication.</p>
                     <ul class="project-tech-list">
                         <li>Python</li>
                         <li>Computer Vision</li>
@@ -174,19 +421,23 @@
                     </ul>
                 </div>
 
-                <div class="project-card">
-                     <div class="project-header">
-                        <i class="far fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/jackyphuti/Terminal_Rogue_98" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- 13. Terminal Rogue 98 -->
+                <div class="project-card" data-category="games systems">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="far fa-folder-open"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Terminal_Rogue_98" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
+                        <span class="project-category-badge badge-games">Systems • Game Dev</span>
+                        <h3>Terminal Rogue 98</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Terminal_Rogue_98">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Built a terminal roguelike focused on memory-safe game logic, state management, and core systems programming principles.</p>
                     </div>
-                    <h3>Terminal Rogue 98</h3>
-                    <div class="project-meta" data-repo="jackyphuti/Terminal_Rogue_98">
-                        <span class="repo-star-badge">Stars: ...</span>
-                        <span class="repo-updated-badge">Updated: loading...</span>
-                    </div>
-                    <p>Built a terminal roguelike focused on memory-safe game logic, state management, and core systems programming principles.</p>
                     <ul class="project-tech-list">
                         <li>C++</li>
                         <li>Game Development</li>
@@ -194,25 +445,30 @@
                     </ul>
                 </div>
 
-                <div class="project-card">
-                     <div class="project-header">
-                        <i class="far fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/jackyphuti/Municipal-Fault-Reporter" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- 14. Municipal Fault Reporter -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-header">
+                            <i class="far fa-folder-open"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/jackyphuti/Municipal-Fault-Reporter" target="_blank" rel="noopener noreferrer" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
+                        <span class="project-category-badge badge-ai">Civic Platform</span>
+                        <h3>Municipal Fault Reporter</h3>
+                        <div class="project-meta" data-repo="jackyphuti/Municipal-Fault-Reporter">
+                            <span class="repo-star-badge">Stars: ...</span>
+                            <span class="repo-updated-badge">Updated: loading...</span>
+                        </div>
+                        <p>Developed a reporting tool for infrastructure faults so communities can submit service issues faster and improve response workflows.</p>
                     </div>
-                    <h3>Municipal Fault Reporter</h3>
-                    <div class="project-meta" data-repo="jackyphuti/Municipal-Fault-Reporter">
-                        <span class="repo-star-badge">Stars: ...</span>
-                        <span class="repo-updated-badge">Updated: loading...</span>
-                    </div>
-                    <p>Developed a reporting tool for infrastructure faults so communities can submit service issues faster and improve response workflows.</p>
                     <ul class="project-tech-list">
                         <li>JavaScript</li>
                         <li>Civic Platform</li>
                         <li>Reporting Workflow</li>
                     </ul>
                 </div>
+
             </div>
         </section>
 
